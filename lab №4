@@ -1,2 +1,88 @@
-print("f")
+print("№1")
+x = int(input("Введите температуру "))
+if x >= 20:
+    print("Кондиционер выключен")
+else:
+    print("Кондиционер включен")
+
+print("№2")
+x = int(input("Введите номер месяца "))
+if x == 1 or x == 2 or x == 12:
+    print("Зима")
+if 3 <= x <= 5:
+    print("Весна")
+if 6 <= x <= 8:
+    print("Лето")
+if 9 <= x <= 11:
+    print("осень")
+
+print("№3")
+while True:
+    x = input("Введите число ")
+    digit = x.isdigit()
+    if digit == True:
+        flag = True
+        x = int(x)
+        if x <= 0 or x > 21:
+            if x <= 0:
+                print("Введите число большее 0")
+                flag = False
+            if x > 21:
+                print("Введите число меньшее 22")
+                flag = False
+        if flag == True:
+            print(21 + (int(x) - 2) * 4)
+    else:
+        print("Error")
+
+print("№4")
+def summ(n):
+    sum = 0
+    for i in str(n):
+        sum += int(i)
+    return int(sum)
+x = (input("Введите число "))
+if summ(x) % 3 == 0:
+    print("Число делится на 6")
+else:
+    print("Число не делится на 6")
+
+print("№5")
+def digit(n):
+    cnt = 0
+    for i in str(n):
+        if i.isdigit() == True:
+            cnt += 1
+    return cnt
+
+def upper(n):
+    cnt = 0
+    for i in str(n):
+        if i.isupper() == True:
+            cnt += 1
+    return cnt
+
+def lower(n):
+    cnt = 0
+    for i in str(n):
+        if i.islower() == True:
+            cnt += 1
+    return cnt
+
+while True:
+    x = input("Введите пароль ")
+    if len(x) < 8:
+        print("Пароль слишком короткий")
+    if digit(x) == 0:
+        print("Пароль не содержит числа")
+    if upper(x) == 0:
+        print("Пароль не содержит заглавные буквы")
+    if lower(x) == 0:
+        print("Пароль не содержит строчные буквы")
+    if (len(x) - digit(x) - upper(x) - lower(x)) == 0:
+        print("Пароль не имеет спец.знаков")
+    else:
+        print("Пароль подходит")
+        break
+
 

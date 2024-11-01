@@ -41,8 +41,9 @@ def summ(n):
     for i in str(n):
         sum += int(i)
     return int(sum)
+
 x = (input("Введите число "))
-if summ(x) % 3 == 0:
+if summ(x) % 3 == 0 and int(x[-1]) % 2 == 0:
     print("Число делится на 6")
 else:
     print("Число не делится на 6")

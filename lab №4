@@ -5,6 +5,7 @@ if x >= 20:
 else:
     print("Кондиционер включен")
 
+
 print("№2")
 x = int(input("Введите номер месяца "))
 if x == 1 or x == 2 or x == 12:
@@ -15,6 +16,7 @@ if 6 <= x <= 8:
     print("Лето")
 if 9 <= x <= 11:
     print("осень")
+
 
 print("№3")
 while True:
@@ -35,6 +37,7 @@ while True:
     else:
         print("Error")
 
+
 print("№4")
 def summ(n):
     sum = 0
@@ -47,6 +50,7 @@ if summ(x) % 3 == 0 and int(x[-1]) % 2 == 0:
     print("Число делится на 6")
 else:
     print("Число не делится на 6")
+
 
 print("№5")
 def digit(n):

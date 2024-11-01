@@ -16,7 +16,6 @@ print(a)
 
 
 print("№3")
-
 import random
 x = []
 i_rand = random.randint(10,20)
@@ -28,9 +27,7 @@ print(max(x)/len(x))
 
 
 print("№4")
-
 import random
-
 len_spis = random.randint(5,10)
 strok = random.randint(1,2)
 spis = []
@@ -49,6 +46,7 @@ for p in range(len(spis)):
         cnt = 0
 else:
     print(spis)
+
 
 print("№5")
 slovar = [('Milk',21),('Bread',33),('Cheese',100),('Chocolate',5)]
@@ -71,10 +69,12 @@ for k in range(len(slovar)):
 print('Max',max_el[0][0],max_el[0][1])
 print('Min',min_el[0][0],min_el[0][1])
 
+
 print("№6")
 x = [0,1,2,3,4,5,6,7,8,9]
 y = {i:i for i in x }
 print(y)
+
 
 print("№7")
 slovar = {"Дерево":"Tree","Дверь":"Door","Палка":"Stick"\
@@ -85,8 +85,8 @@ if vvod.lower():
 if vvod in slovar:
     print(slovar[vvod])
 
-print("№8")
 
+print("№8")
 import random
 
 def varint(vvod):

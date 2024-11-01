@@ -1,0 +1,62 @@
+print("№1")
+x = input("Введите имя ")
+x1 = input("Введите возраст ")
+for i in range(10):
+    print(f"Меня зовут {x},мне {x1} лет")
+
+
+print("№2")
+x = (input("Введите число "))
+if len(x) > 1:
+    print("Введите число от 1 до 9 ")
+else:
+    for i in range(1,10):
+        print(i * int(x))
+
+
+print("№3")
+for i in range(100):
+    if i % 3 == 0:
+        print(i)
+
+print("№4")
+x = int(input("Введите число "))
+cnt = 1
+for i in range(1,x+1):
+    cnt *= i
+print(cnt)
+
+print("№5")
+x = 20
+while x != -1:
+    print(x)
+    x -= 1
+
+
+print("№6")
+x = int(input("Введите число "))
+spis = [1,1]
+cnt = 0
+print(spis[1])
+while spis[-1] < x:
+    print(spis[-1])
+    spis.append(spis[cnt] + spis[cnt +1])
+    cnt += 1
+
+
+print("№7")
+x = input("Введите слово ")
+new = ''
+cnt = 1
+for i in range(len(x)):
+    new += x[i]
+    new += str(cnt)
+    cnt += 1
+print(new)
+
+
+print("№8")
+while True:
+    x = int(input('Введите первое число '))
+    y = int(input('Введите второе число '))
+    print(x + y)

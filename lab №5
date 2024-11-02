@@ -73,6 +73,7 @@ print('Min',min_el[0][0],min_el[0][1])
 print("№6")
 x = [0,1,2,3,4,5,6,7,8,9]
 y = {i:i for i in x }
+print(x)
 print(y)
 
 

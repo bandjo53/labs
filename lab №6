@@ -1,0 +1,13 @@
+print("№1")
+n = input("Введите данные ")
+slovar = {'s':1,'m':2,'h':3}
+if slovar[n[-3]] < slovar[n[-1]]:
+    if slovar[n[-1]] - slovar[n[-3]] == 1:
+        print(int(n[:-3])/60,n[-1])
+    else:
+        print((int(n[:-3])/3600),n[-1])
+else:
+    if slovar[n[-3]] - slovar[n[-1]] == 1:
+        print(int(n[:-3]) * 60, n[-1])
+    else:
+        print(int(n[:-3]) * 3600, n[-1])

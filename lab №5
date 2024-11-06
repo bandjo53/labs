@@ -27,7 +27,9 @@ print(max(x)/len(x))
 
 
 print("№4")
+
 import random
+
 len_spis = random.randint(5,10)
 strok = random.randint(1,2)
 spis = []
@@ -46,7 +48,6 @@ for p in range(len(spis)):
         cnt = 0
 else:
     print(spis)
-
 
 print("№5")
 slovar = [('Milk',21),('Bread',33),('Cheese',100),('Chocolate',5)]
@@ -69,13 +70,11 @@ for k in range(len(slovar)):
 print('Max',max_el[0][0],max_el[0][1])
 print('Min',min_el[0][0],min_el[0][1])
 
-
 print("№6")
 x = [0,1,2,3,4,5,6,7,8,9]
 y = {i:i for i in x }
 print(x)
 print(y)
-
 
 print("№7")
 print("Введите слово , которое хотите перевести \n  (Дерево,Дверь,Палка,Обед,Утро)")
@@ -86,7 +85,6 @@ if vvod.lower():
     vvod = vvod[0].upper() + vvod[1:]
 if vvod in slovar:
     print(slovar[vvod])
-
 
 print("№8")
 import random
@@ -133,19 +131,31 @@ while True:
         print("Выиграл противник")
     if varint(vvod) == 2 and vrag == 4:
         print("Вы выиграли")
+    if varint(vvod) == 4 and vrag == 2:
+        print("Выиграл противник")
+    if varint(vvod) == 4 and vrag == 3:
+        print("Вы выиграли")
+    if varint(vvod) == 3 and vrag == 4:
+        print("Выиграл противник")
+    if varint(vvod) == 3 and vrag == 5:
+        print("Вы выиграли")
+    if varint(vvod) == 5 and vrag == 3:
+        print("Выиграл противник")
+    if varint(vvod) == 5 and vrag == 1:
+        print("Вы выиграли")
+    if varint(vvod) == 1 and vrag == 5:
+        print("Выиграл противник")
     if varint(vvod) == 2 and vrag == 4:
+        print("Вы выиграли")
+    if varint(vvod) == 4 and vrag == 2:
         print("Выиграл противник")
     if varint(vvod) == 4 and vrag == 3:
         print("Вы выиграли")
-    if varint(vvod) == 4 and vrag == 3:
+    if varint(vvod) == 3 and vrag == 4:
         print("Выиграл противник")
     if varint(vvod) == 3 and vrag == 5:
         print("Вы выиграли")
-    if varint(vvod) == 3 and vrag == 5:
+    if varint(vvod) == 5 and vrag == 3:
         print("Выиграл противник")
-    if varint(vvod) == 5 and vrag == 1:
-        print("Вы выиграли")
-    if varint(vvod) == 5 and vrag == 1:
-        print("Выиграл противник")
-
     print("\n")
+

@@ -1,24 +1,22 @@
 print("№1")
-
-# vvod = input("Введите данные ")
 def perevod(vvod):
     spis = {"s":1,"m":2,"h":3}
     if spis[vvod[-3]] < spis[vvod[-1]]:
         if spis[vvod[-1]] - spis[vvod[-3]] == 1:
-            print(int(vvod[:-3])/60,vvod[-1])
+            return (str(int(vvod[:-3])/60) + vvod[-1])
         else:
-            print(str(int(vvod[:-3]) / 3600)[:5], vvod[-1])
+            return (str(int(vvod[:-3]) / 3600)[:5] +  vvod[-1])
     else:
         if spis[vvod[-3]] - spis[vvod[-1]] == 1:
-            print(int(vvod[:-3]) * 60, vvod[-1])
+            return (str(int(vvod[:-3]) * 60) + vvod[-1])
         else:
-            print(int(vvod[:-3]) * 3600, vvod[-1])
+            return (str(int(vvod[:-3]) * 3600) +vvod[-1])
 print(perevod('4h m'))
 print(perevod('30m h'))
 print(perevod('12s h'))
 
-print("№2")
 
+print("№2")
 def vklad(sum,year):
     sum1 = sum
     sum2 = sum
@@ -45,17 +43,20 @@ def vklad(sum,year):
         if year > 6:
             for i in range(year - 6):
                 sum1 += sum1 * (0.02 + procent)
-    return sum1 - sum
+    return (sum1 - sum)
 
 print(vklad(30000,3))
 print(vklad(100000,5))
 print(vklad(200000,8))
+
 
 print("№3")
 spis = []
 def just(start,finish):
     if start == 0 and finish == 1:
         print("error")
+    if start ==1:
+        start =2
     for i in range(start,finish+1):
         for j in range(2,i):
             if i % j == 0:
@@ -63,12 +64,11 @@ def just(start,finish):
         else:
             spis.append(i)
     return spis
+print(just(1,10))
 print(just(15,120))
 
 
-
 print("№4")
-
 size_1 = int(input("Введите размер первой матрицы "))
 matrisa_1 = input("Введите первую матрицу \n")
 matrisa1 = []
@@ -92,22 +92,22 @@ def sum_matrits(matrisa1,matrisa2):
         sum_matriz = []
         for i in range(size_1):
             for p in range(size_1):
-                sum_matriz.append(int(matrisa1[i][p]) + \
-                                int(matrisa2[i][p]))
+                sum_matriz.append(int(matrisa1[i][p]) + int(matrisa2[i][p]))
 
         print("Ответ")
         for i in range(0,len(sum_matriz),size_1):
-            print(sum_matriz[i: i+ size_1])
+            print(sum_matriz[i: i+size_1])
 
 print(sum_matrits(matrisa1,matrisa2))
 
+
 print("№5")
-x = str(input("Введите строку "))
 def mirror(x):
     x = x.replace(" ","")
     if x == x[::-1]:
-        print("True")
+        return ("True")
     else:
-        print("False")
+        return ("False")
 
-print(mirror(x))
+print(mirror("34 gf  f"))
+print(mirror("55g g55"))

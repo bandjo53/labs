@@ -1,0 +1,142 @@
+import time
+import random
+print("Добро пожаловать в Элендрию — галактику с тысячами планет, каждая из которых хранит \n"
+      "много загадок.Вы — искатель приключений, чья история начинается с планеты Тенебисс.\n"
+      "Исследуйте живописные ландшафты, от густых лесов до мрачных подземелий, находя снаряжение,\n"
+      "оружие и различные зелья, принимайте решения, способные изменить ход истории. Ваш выбор \n"
+      "определит вашу судьбу: станете ли вы героем или умрете!\n")
+
+name = input("Введите имя персонажа ")
+print("Характеристики вашего персонажа:")
+damage = random.randint(5,7)
+print(f"Атака-{damage}")
+protection = random.randint(4,5)
+print(f"Защита-{protection}")
+health = random.randint(5,10)
+print(f"Здоровье-{health}")
+time.sleep(0)
+izmena_har = int(input("\nЖелаете ли вы изменить характеристики вашего персонажа?"
+                       "\n1.Пропустить""\n2.Изменить характеристики персонажа\n"))
+
+sum_har = damage + protection + health
+
+def izmenenie_har(izmena_har):
+    if izmena_har == 2:
+        global damage,protection,health
+        print(f"Сумма ваших очков-{sum_har}")
+        damage = int(input("Введите количество очков для атаки-"))
+        print(f"Сумма ваших очков-{sum_har - damage}")
+        protection = int(input("Введите количество очков для защиты-"))
+        print(f"Сумма ваших очков-{sum_har - damage - protection}")
+        health = int(input("Введите количество очков для здоровья-") )
+        if damage + protection + health > sum_har:
+            print("У вас недостаточно очков, попробуйте снова\n")
+            return izmenenie_har(izmena_har)
+        else:
+            return (f"\nНовые характеристики вашего персонажа \nАтака-{damage}"
+                    f"\nЗащита-{protection}\nЗдоровье-{health}")
+    return "Характеристики не были изменены"
+print(izmenenie_har(izmena_har))
+vrag = 1
+inventar = []
+def vrag(vrag):
+    vrag_damage = (random.randint(5, 6))
+    vrag_protection = random.randint(2, 4)
+    vrag_health = random.randint(6,10)
+    global damage, protection, health
+    print(f"Ваши характеристики {20 * " "} характеристики врага\n"
+          f"урон-    {damage}{40 * " "}{vrag_damage}\n"
+          f"Защита-  {protection}{40 * " "}{vrag_protection}\n"
+          f"Здоровье-{health}{40 * " "}{vrag_health}\n")
+    while vrag_health >0 or health > 0:
+        if health <= 0:
+            return "Вы повержены"
+            break
+        vibor_vrag = int(input("Выбирите действие \n1.Ударить\n"
+                               "2.Уклониться\n3.Выпить зелье здоровья\n"))
+        if vibor_vrag == 1:
+            print("Вы наносите удар по противнику...\n")
+            vrag_health = vrag_health-(damage-vrag_protection)
+            if vrag_health < 0:
+                vrag_health = 0
+            print(f"Ваше здоровье {20 * " "} здоровье врага\n",
+                  health,36*" ",vrag_health,"\n")
+            if vrag_health <= 0:
+                inventar.append("зелье здоровья")
+                return print("Противник повержен\n"
+                "В сундуке разбойника вы находите зелье здоровья и улучшенную броню\n"
+                "В ваш инвентарь добавлено зелье здоровья")
+
+            print("Враг наносит ответный удар...")
+            print(f"Ваше здоровье {20 * " "} здоровье врага")
+            if (vrag_damage-protection) <0:
+                health = health
+                print(health,36*" ",vrag_health)
+            if (vrag_damage - protection) > 0:
+                health = health - (vrag_damage - protection)
+                print(health ,36*" ",vrag_health)
+        if vibor_vrag == 2:
+            shanz_otaki = random.randint(1,3)
+            if shanz_otaki == 1:
+                print(f"Вы увернулись от атаки противника\n")
+                print("Вы наносите удар по противнику...\n")
+                vrag_health = (vrag_health-(damage-vrag_protection))
+                if vrag_health < 0:
+                    vrag_health = 0
+                print(f"Ваше здоровье {20 * " "} здоровье врага\n",
+                health,36*" ",vrag_health,"\n")
+                if vrag_health <= 0:
+                    inventar.append("зелье здоровья")
+                    return print("Противник повержен\n"
+                        "В сундуке разбойника вы находите зелье здоровья и улучшенную броню\n"
+                        "В ваш инвентарь добавлено зелье здоровья")
+            else:
+                print("У вас не получилось увернуться от атаки противника")
+                print(f"Ваше здоровье {20 * " "} здоровье врага")
+                if (vrag_damage - protection) < 0:
+                    health = health
+                    print(health, 36 * " ", vrag_health)
+                if (vrag_damage - protection) > 0:
+                    health = health - (vrag_damage - protection)
+                    print(health, 36 * " ", vrag_health)
+ravnina = True
+les = True
+podzemelya = True
+global_region = 1
+def global_regioni(global_region):
+    region = int(input("\nКуда хотите отправиться?\n1.Равнины\n2.Лес\n3.Подземелье\n"))
+    def regioni(region):
+        if region == 1:
+            global ravnina
+            if ravnina == True:
+                print("Вы отправляетесь в равнины...")
+                time.sleep(0)
+                print("Перед вами открываются удивительные просторы планеты")
+                time.sleep(0)
+                print("В далеке вы замечаете небольшой охотничий домик с "
+                      "растопленным камином внутри")
+                time.sleep(0)
+                vibor_ravnini = int(input("1.Отправиться к домику\n2.Выйти из равнин\n"))
+                def vibor_ravnin(vibor_ravnini):
+                    if vibor_ravnini == 1:
+                        print("Войдя в дом ,вы сталкиваетесь с разбойником\n")
+                        return vrag(vrag),global_regioni(global_region)
+                    if vibor_ravnini == 2:
+                        return global_regioni(global_region)
+                ravnina = False
+                return vibor_ravnin(vibor_ravnini)
+            else:
+                print("Вы уже побывали в этой локации")
+                return global_regioni(global_region)
+        if region == 2:
+            global les
+            if les == True:
+                print("дальше")
+                les = False
+                return global_regioni(global_region)
+            else:
+                print("Вы уже побывали в этой локации")
+                return global_regioni(global_region)
+    return regioni(region)
+
+print(global_regioni(global_region))

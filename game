@@ -182,6 +182,7 @@ def global_regioni(global_region):
                 print("Пройдя в глубь леса, вы натыкаетесь на маленькую деревню у небольшого озера, состоящую из сарая,домика и таверны.")
                 time.sleep(2)
                 vibor_derevnia = int(input("1.Войти в сарай\n2.Войти в домик\n3.Войти в таверну\n4.Выйти из леса\n"))
+
                 def vibor_sarai(vibor_derevnia):
                     global health,vrag_health,vrag_damage,vrag_protection
                     if vibor_derevnia == 1:
@@ -193,7 +194,22 @@ def global_regioni(global_region):
                         input("1.Войти в сарай\n2.Войти в домик\n3.Войти в таверну\n4.Выйти из леса\n"))
                         return vibor_sarai(vibor_derevnia)
                     if vibor_derevnia == 2:
-                        print("Подойдя к дому, вы натыкаетесь на гоблина \n")
+                        print("Войдя в дом,вас встречает торговец.Он начинает распрашивать вас и у вас завязывается беседа, в ходе которой\n"
+                            "торговец просит вас избавить таверну от монстров взамен на что-нибудь из его ассортимента. ")
+                        vibor_derevnia = int(input("1.Войти в сарай\n2.Войти в домик\n3.Войти в таверну\n4.Выйти из леса\n"))
+                        return vibor_sarai(vibor_derevnia)
+                    if vibor_derevnia == 3:
+                        flag_taverna = True
+                        def taverna(flag_taverna):
+                            if flag_taverna == True:
+                                vibor_taverna = int(input("Вы вошли в таверну.\n1.Пройти в гостинную\n2.Пойти в левую комнату\n3.Подняться на второй этаж\n"
+                                                          "4.Спуститься в подвал \n5.Выйти из таверны\n"))
+
+                                if vibor_taverna == 1:
+                                    print("Пройдя вперед, вы ничего не нашли.Вокруг ничего не было, кроме паутины в углах комнаты")
+                                return taverna(flag_taverna)
+
+
                         health = max_health
                         vrag_health += 7
                         vrag_damage += 10
@@ -204,8 +220,6 @@ def global_regioni(global_region):
                         print("Камень воскрешения: если этот камень находится у вас в инвентаре,\n"
                               "то он не позволит вам умереть и вы возродитесь с половиной запаса\n"
                               " здоровья и продолжите сражаться.")
-                        vibor_derevnia = int(input("1.Войти в сарай\n2.Войти в домик\n3.Войти в таверну\n4.Выйти из леса\n"))
-                        return vibor_sarai(vibor_derevnia)
                     if vibor_derevnia == 4:
                         return global_regioni(global_region)
                 print(vibor_sarai(vibor_derevnia))

@@ -44,8 +44,9 @@ inventar = [""]
 vrag_damage = (random.randint(6, 7))
 vrag_protection = random.randint(2, 4)
 vrag_health = random.randint(6,10)
+marker_boi = ""
 def vrag(vrag):
-    global damage, protection, health,vrag_health,vrag_damage,vrag_protection
+    global damage, protection, health,vrag_health,vrag_damage,vrag_protection,marker_boi
     print(f"Ваши характеристики {' '*20} характеристики врага\n"
           f"урон-    {damage}{40 * ' '}{vrag_damage}\n"
           f"Защита-  {protection}{40 * ' '}{vrag_protection}\n"
@@ -63,31 +64,71 @@ def vrag(vrag):
         vibor_vrag = int(input("Выбирите действие \n1.Ударить\n"
                                "2.Уклониться\n3.Открыть инвентарь\n"))
         if vibor_vrag == 1:
-            print("Вы наносите удар по противнику...\n")
-            vrag_health = vrag_health-((damage + random.randint(-1,2))-vrag_protection)
-            if vrag_health < 0:
-                vrag_health = 0
-            print(f"Ваше здоровье {20 * ' '} здоровье врага\n",
-                  health,36*" ",vrag_health,"\n")
-            if vrag_health <= 0:
-                return "Противник повержен"
-            print("Враг наносит ответный удар...")
-            print(f"Ваше здоровье {20 * ' '} здоровье врага")
-            shanz_plusa_onaki = random.randint(-2,1)
-            if ((vrag_damage + shanz_plusa_onaki)-protection) <= 0:
-                health = health
-                print(health,36*" ",vrag_health)
-            if ((vrag_damage + shanz_plusa_onaki) - protection) > 0:
-                health = health - ((vrag_damage + shanz_plusa_onaki) - protection)
-                if health >= 0:
+            if marker_boi == "just":
+                print("Вы наносите удар по противнику...\n")
+                vrag_health = vrag_health - ((damage + random.randint(-1, 2)) - vrag_protection)
+                if vrag_health < 0:
+                    vrag_health = 0
+                print(f"Ваше здоровье {20 * ' '} здоровье врага\n",
+                      health, 36 * " ", vrag_health, "\n")
+                if vrag_health <= 0:
+                    marker_boi = ""
+                    return "Противник повержен"
+                print("Враг наносит ответный удар...")
+                print(f"Ваше здоровье {20 * ' '} здоровье врага")
+                shanz_plusa_onaki = random.randint(-2, 1)
+                if ((vrag_damage + shanz_plusa_onaki) - protection) <= 0:
                     health = health
-                else:
+                    print(health, 36 * " ", vrag_health)
+                if ((vrag_damage + shanz_plusa_onaki) - protection) > 0:
+                    health = health - ((vrag_damage + shanz_plusa_onaki) - protection)
+                    if health >= 0:
+                        health = health
+                    else:
+                        health = 0
+                    print(health, 36 * " ", vrag_health)
+                if health <= 0:
                     health = 0
-                print(health ,36*" ",vrag_health)
-            if health <= 0:
-                health = 0
-                print("Вы повержены")
-                sys.exit()
+                    print("Вы повержены")
+                    sys.exit()
+            if marker_boi == "poizon":
+                print("Вы наносите удар по противнику...\n")
+                vrag_health = vrag_health - ((damage + random.randint(-1, 2)) - vrag_protection)
+                if vrag_health < 0:
+                    vrag_health = 0
+                print(f"Ваше здоровье {20 * ' '} здоровье врага\n",
+                      health, 36 * " ", vrag_health, "\n")
+                if vrag_health <= 0:
+                    marker_boi = ""
+                    return "Противник повержен"
+                print("Враг наносит ответный удар...")
+                print(f"Ваше здоровье {20 * ' '} здоровье врага")
+                shanz_plusa_onaki = random.randint(-2, 1)
+                if ((vrag_damage + shanz_plusa_onaki) - protection) <= 0:
+                    health = health
+                    print(health, 36 * " ", vrag_health)
+                if ((vrag_damage + shanz_plusa_onaki) - protection) > 0:
+                    health = health - ((vrag_damage + shanz_plusa_onaki) - protection)
+                    if health >= 0:
+                        health = health
+                    else:
+                        health = 0
+                    print(health, 36 * " ", vrag_health)
+                if health <= 0:
+                    health = 0
+                    print("Вы повержены")
+                    sys.exit()
+                period_poizon = random.randint(2,3)
+                for i in range(period_poizon):
+                    print("Яд противника действует на вас")
+                    print(f"Ваше здоровье{20*' '} здоровье врага")
+                    health -=1
+                    time.sleep(2)
+                    print(health,36*' ',vrag_health)
+
+                    if health == 0:
+                        print("Вы повержены")
+                        sys.exit()
         if vibor_vrag == 2:
             shanz_otaki = random.randint(1,2)
             if shanz_otaki == 1:
@@ -99,6 +140,7 @@ def vrag(vrag):
                 print(f"Ваше здоровье {20 * ' '} здоровье врага\n",
                 health,36*' ',vrag_health,"\n")
                 if vrag_health <= 0:
+                    marker_boi == ""
                     return "Противник повержен"
             else:
                 print("У вас не получилось увернуться от атаки противника")
@@ -155,9 +197,10 @@ def global_regioni(global_region):
                 time.sleep(2)
                 vibor_ravnini = int(input("1.Отправиться к домику\n2.Выйти из равнин\n"))
                 def vibor_ravnin(vibor_ravnini):
-                    global damage,protection
+                    global damage,protection,marker_boi
                     if vibor_ravnini == 1:
                         print("Войдя в дом, вы сталкиваетесь с разбойником\n")
+                        marker_boi = "just"
                         time.sleep(2)
                         print(vrag(vrag))
                         inventar.append("Зелье здоровья")
@@ -165,7 +208,10 @@ def global_regioni(global_region):
                         protection += 10
                         print("В сундуке разбойника вы находите зелье здоровья и кольчужную броню\n"
                               "В ваш инвентарь добавлено зелье здоровья\n"
-                              "ваши характеристики улучшены")
+                              "ваши характеристики улучшены:\n"
+                              "+Зелье здоровья\n"
+                              "+Урон\n"
+                              "+Защита")
                         return global_regioni(global_region)
                     if vibor_ravnini == 2:
                         return global_regioni(global_region)
@@ -184,7 +230,7 @@ def global_regioni(global_region):
                 vibor_derevnia = int(input("1.Войти в сарай\n2.Войти в домик\n3.Войти в таверну\n4.Выйти из леса\n"))
 
                 def vibor_sarai(vibor_derevnia):
-                    global health,vrag_health,vrag_damage,vrag_protection
+                    global health,vrag_health,vrag_damage,vrag_protection,marker_boi
                     if vibor_derevnia == 1:
                         print("Подойдя к двери, вы, навалившись, начали пытаться ее открыть...")
                         time.sleep(3)
@@ -200,26 +246,50 @@ def global_regioni(global_region):
                         return vibor_sarai(vibor_derevnia)
                     if vibor_derevnia == 3:
                         flag_taverna = True
+                        print("Вы входите в заброшенную таверну. Её обветшалые стены,\n"
+                              "покрытые мхом, и разбитые окна создают атмосферу заброшенности. \n"
+                              "Внутри пыльные столы и остатки мебели напоминают о былом уюте, а \n"
+                              "старый камин и потемневшие картины хранят забытые истории.Тишину \n"
+                              "нарушает лишь ветер, шепчущий о таинственных легендах и сокровищах,\n"
+                              "скрытых в её темных углах. ")
                         def taverna(flag_taverna):
+                            global marker_boi
                             if flag_taverna == True:
-                                vibor_taverna = int(input("Вы вошли в таверну.\n1.Пройти в гостинную\n2.Пойти в левую комнату\n3.Подняться на второй этаж\n"
+                                vibor_taverna = int(input("\n1.Пройти в гостинную\n2.Пойти в левую комнату\n3.Подняться на второй этаж\n"
                                                           "4.Спуститься в подвал \n5.Выйти из таверны\n"))
 
                                 if vibor_taverna == 1:
                                     print("Пройдя вперед, вы ничего не нашли.Вокруг ничего не было, кроме паутины в углах комнаты")
-                                return taverna(flag_taverna)
+                                    vibor_taverna = int(input( "\n1.Пройти в гостинную\n2.Пойти в левую комнату\n3.Подняться на второй этаж\n"
+                                                       "4.Спуститься в подвал \n5.Выйти из таверны\n"))
 
-
-                        health = max_health
-                        vrag_health += 7
-                        vrag_damage += 10
-                        vrag_protection += 7
-                        print(vrag(vrag))
-                        inventar.append("Камень воскрешения")
-                        print("Осмотрев дом,вы находите камень воскрешения")
-                        print("Камень воскрешения: если этот камень находится у вас в инвентаре,\n"
-                              "то он не позволит вам умереть и вы возродитесь с половиной запаса\n"
-                              " здоровья и продолжите сражаться.")
+                                    return taverna(vibor_taverna)
+                                if vibor_taverna == 2:
+                                    flag_vebber_forst = True
+                                    print("Пройдя в левую комнату таверны, вы нарываетесь на огромного паука")
+                                    if flag_vebber_forst == True:
+                                        marker_boi = "poizon"
+                                        print(vrag(vrag))
+                                        vibor_taverna = int(input("\n1.Пройти в гостинную\n2.Пойти в левую комнату\n3.Подняться на второй этаж\n"
+                                                "4.Спуститься в подвал \n5.Выйти из таверны\n"))
+                                        flag_vebber_forst = False
+                                        return taverna(vibor_taverna)
+                                    else:
+                                        print("Вы уже побывали в этой локации")
+                                        vibor_taverna = int(input("\n1.Пройти в гостинную\n2.Пойти в левую комнату\n3.Подняться на второй этаж\n"
+                                               "4.Спуститься в подвал \n5.Выйти из таверны\n"))
+                                        return taverna(vibor_taverna)
+                                if vibor_taverna(vibor_taverna) == 3:
+                                    print("Вы поднимаетесь на второй этаж таверны...")
+                                    time.sleep(2)
+                                    print("Поднявшись ,вы находите железные доспехи в углу комнаты")
+                                    print("Ваши характеристики улучшены:\n")
+                                    print("+Защита")
+                                    protection += 3
+                                if vibor_taverna == 4:
+                                    print("Вы спускаетесь в подвал...")
+                                    print("Как только вы спустились , на вас напал ")
+                        return taverna(flag_taverna)
                     if vibor_derevnia == 4:
                         return global_regioni(global_region)
                 print(vibor_sarai(vibor_derevnia))
